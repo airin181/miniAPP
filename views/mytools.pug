@@ -1,0 +1,23 @@
+include ./head.pug
+
+body(id="body-mytools") 
+    header
+            nav(class='navbar')
+
+                        img(src="../img/logo.svg", alt="logo" href="/home", class="nav-branding")
+                        ul(class="nav-menu")
+                            li(class="nav-item")
+                                a(href="/home", class="nav-link") Home
+                            li(class="nav-item")
+                                a(href="/form", class="nav-link") Form
+                            li(class="nav-item")
+                                a(href="/mytools", class="nav-link", style="color:grey") My Tools
+                        div(class="hamburger")
+                                span(class="bar")
+                                span(class="bar")
+                                span(class="bar")
+
+    main
+
+
+script(src="/js/hamburger.js")

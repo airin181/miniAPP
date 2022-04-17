@@ -1,0 +1,38 @@
+include ./head.pug
+
+body(id="body-form") 
+    header
+            nav(class='navbar')
+
+                        img(src="../img/logo.svg", alt="logo" href="/home", class="nav-branding")
+                        ul(class="nav-menu")
+                            li(class="nav-item")
+                                a(href="/home", class="nav-link") Home
+                            li(class="nav-item")
+                                a(href="/form", class="nav-link", style="color:grey") Form
+                            li(class="nav-item")
+                                a(href="/mytools", class="nav-link") My Tools
+                        div(class="hamburger")
+                                span(class="bar")
+                                span(class="bar")
+                                span(class="bar")
+
+    main
+
+        div(class="div-form")  
+            section(class="section-form")
+                h2(class="h2-form") Register a tool
+                form(action="/createTool", method="post", class="form", enctype="multipart/form-data") 
+                    label(for="name") Name
+                    input(type="text" name="name" placeholder="Type a name...")
+                    label(for="price") Price 
+                    input(type="text" name="price" placeholder="Type a price...")
+                    label(for='description') Description
+                    input(type='textarea' name='description' id="textarea" placeholder="Type a description...")
+
+                    label(for='photo') Image
+                    input(type='file' name='image' id="file")
+                    button(class="submit") REGISTER
+
+
+script(src="../js/hamburger.js")
