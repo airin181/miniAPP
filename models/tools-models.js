@@ -12,26 +12,27 @@ const createTool = async (data) => {
         console.log("console log de tool en Models: ", data);
 
         const newTool = new Tool(data);
-        console.log("consolelod de newTool en models: ", newTool);
         await Tool.create(newTool);
+
     } catch (error) {
         throw error
     }
 }
 
-/* const getAllTools = async () => {
+/*  const getAllTools = async () => {
     try {
         const getAllTools = await schema.find({});
-        return getAllProducts;        
+        return getAllTools;        
     } catch (error) {
         console.log(error);
     }
-} */
+}  */
 
 
 const tool = {
-    createTool
-}
+    createTool,
+/*     getAllTools
+ */}
 
 module.exports = tool
 

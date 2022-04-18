@@ -18,6 +18,16 @@ body(id="body-mytools")
                                 span(class="bar")
 
     main
+        div(class="mytools")
+        section(class="mytools-section")
+            h2(class="h2-form") My tools
+            if tools 
+            each tool in tools
+                div(class="mytool")  
+                    p Name #{film.title}
+                    p Price: #{film.year}
+                    p Description: #{film.director}
+                    p URL Image: #{film.casting}
 
 
 script(src="/js/hamburger.js")
