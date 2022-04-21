@@ -9,7 +9,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage }).single('image'); //donde meter esas imagenes
 
 //home
-routes.get("/home", tools.home)
+routes.get("/", tools.home)
 
 //form
 routes.post('/createTool', upload, tools.createTool); //crear datos y guardar en DB
