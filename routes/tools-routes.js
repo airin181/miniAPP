@@ -1,20 +1,22 @@
-const tools = require('../controllers/tools-controllers.js');
-const router = require('express').Router();
+const express = require('express');
+ const multer  = require('multer'); 
 
-const multer  = require('multer');
+const tools = require('../controllers/tools-controllers.js');
+
+const routes = express.Router();
+
 const upload = multer({dest: 'public/img'}) //donde meter esas imagenes
 
-
 //home
-router.get("/home", tools.home)
+routes.get("/home", tools.home)
 
 //form
-router.post('/createTool', upload.single('image'), tools.createTool); //enviar datos formulario -- 'image' es el nombre indicado en el form
-router.get('/form', tools.form); //obtener datos formulario
+routes.post('/createTool', upload.single('image'), tools.createTool);
+routes.get('/form', tools.form); //obtener datos formulario
 
 //mytools
-router.get('/mytools', tools.mytools); //obtener los datos de las tools
-router.post('/mytools'); // crear el contenido de las tools proviniente de la DB en esa ruta
+ routes.get('/mytools', tools.getAllTools); //obtener los datos de las tools
+/* routes.post('/mytools', tools.mytools); */ // crear el contenido de las tools proviniente de la DB en esa ruta 
 
 
-module.exports = router;
+module.exports = routes;
