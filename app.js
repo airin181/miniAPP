@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const port = process.env.PORT; 
 const cors = require('cors');
 const path = require('path');
-const helmet = require("helmet");
+/* const helmet = require("helmet"); */
 
 
 require('./utils/mongo.js');
@@ -21,16 +21,16 @@ app.set("views", "./views");
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.json());
 app.use(cors());
-app.use(helmet({
+/* app.use(helmet({
     contentSecurityPolicy: {
-    /* useDefaults: true, */
-    crossOriginEmbedderPolicy: false,
+    useDefaults: true, 
+    //crossOriginEmbedderPolicy: false,
        directives: {
         
         "img-src": ["'self'", "firebasestorage.googleapis.com", "https: data:"]
       } 
     }
-  }));
+  })); */
   
 app.use(express.urlencoded({extended:true}));//Para poder leer los datos del req.body y así tratar luego en DB esa info
 
