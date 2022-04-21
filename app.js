@@ -25,20 +25,8 @@ app.use(
     helmet({
       contentSecurityPolicy: false,
       crossOriginEmbedderPolicy: false,
-      frameguard: false // Needed for Code Sandbox (not part of the solution)
     })
   );
-/* app.use(
-    helmet({
-    contentSecurityPolicy: {
-    useDefaults: true, 
-    //crossOriginEmbedderPolicy: false,
-       directives: {
-        
-        "img-src": ["'self'", "firebasestorage.googleapis.com", "https: data:"]
-      } 
-    }
-  })); */
   
 app.use(express.urlencoded({extended:true}));//Para poder leer los datos del req.body y así tratar luego en DB esa info
 
