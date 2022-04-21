@@ -2,19 +2,38 @@ const toolsModels = require('../models/tools-models.js');
 const mongo = require('../utils/mongo.js');
 const mongoSchema = require('../models/schema_model')
 
+const firebase = require('../utils/firestore');
+const { getStorage, ref, uploadBytes, getDownloadURL } = require("firebase/storage");
+const storage = getStorage();
+
 
 const createTool = async (req, res) => {
 
-    try{
-          const newTool = {
-            name: req.body.name,
-            price: req.body.price,
-            description: req.body.description,
-            image: req.file.destination
-        } // {} nuevo producto a guardar
+    const name = req.body.name
+    const price = req.body.price
+    const description = req.body.description
+    let image;
+    const file = req.file;
 
-        console.log("consolelog de newTool: ", newTool);
-        await toolsModels.createTool(newTool);
+    const fileName = file.originalname;
+
+    const metadata = {
+        contentType: 'image/jpeg'
+    };
+    const storageRef = ref(storage, 'images/' + fileName);
+
+    try{
+    //......FIREBASE
+    await uploadBytes(storageRef, file.buffer, metadata).then(async (snapshot) => {
+        console.log('Uploaded a file!')
+        image = await getDownloadURL(storageRef);
+    })
+        await toolsModels.createTool({
+            name: name,
+            price: price,
+            description: description,
+            image: image 
+        });
         res.status(201).redirect(`${process.env.URL_BASE}/mytools`)
     }
 
@@ -33,12 +52,6 @@ const home = (req, res) => {
 
 const getAllTools = async(req, res) => {
     let data;
- /*    const tool = {
-        name: req.params.name,
-        price: req.params.price,
-        description: req.params.description,
-        image: req.params.destination
-    } */
     try {
         data = await mongoSchema.find({});
         res.status(200).render("mytools", {"tools":data});
