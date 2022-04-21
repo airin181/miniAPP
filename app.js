@@ -24,7 +24,7 @@ app.use(cors());
 app.use(helmet({
     useDefaults: true,
     directives: {
-      "img-src": ["'self'", "https: data:"]
+      "img-src": ["'https://miniapp-tools.herokuapp.com'", "https: data:"]
     }
   }));
 app.use(express.urlencoded({extended:true}));//Para poder leer los datos del req.body y así tratar luego en DB esa info
