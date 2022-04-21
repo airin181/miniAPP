@@ -19,15 +19,16 @@ body(id="body-mytools")
 
     main
         div(class="mytools")
+            h2(class="h2-form") My tools
             section(class="mytools-section")
-                h2(class="h2-form") My tools
                 if tools 
                 each tool in tools
                     div(class="mytool")  
+                        img(src=tool.image, alt="image")
                         p <b>Name:</b> #{tool.name}
-                        p <b>Price:</b> #{tool.name}
-                        p <b>Description:</b> #{tool.name}
-                        p <b>URL Image:</b> #{tool.name}
+                        p <b>Price:</b> #{tool.price}€
+                        p(id="description") <b>Description:</b> #{tool.description}
+                        
 
 
 script(src="/js/hamburger.js")

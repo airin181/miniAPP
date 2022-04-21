@@ -1,10 +1,12 @@
+require('dotenv').config();
+
 const express = require('express')
-const bodyParser = require('body-parser')
-const path = require('path');
 const app = express();
-const port = 3000;
-const env = require("dotenv").config(); 
+
+const bodyParser = require('body-parser')
+const port = process.env.PORT; 
 const cors = require('cors');
+const path = require('path');
 
 require('./utils/mongo.js');
 
@@ -15,7 +17,6 @@ app.set('view engine', 'pug');
 app.set("views", "./views");
 
 app.use(express.static(path.join(__dirname + '/public')));
-app.use(express.static('public'));
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({extended:true}));//Para poder leer los datos del req.body y así tratar luego en DB esa info
@@ -24,8 +25,6 @@ app.use(express.urlencoded({extended:true}));//Para poder leer los datos del req
 //Rutas II
 app.use('/', toolsRouter) 
 
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
-
-module.exports = server;
