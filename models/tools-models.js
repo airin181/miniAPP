@@ -3,7 +3,7 @@
 //requirements:
 const mongoose = require('mongoose')
 const Tool = require("./schema_model.js");
-const { ObjectId } = require('../utils/mongo');
+const { ObjectId } = require('../utils/mongo.js');
 
 
 //funciones:
@@ -19,20 +19,11 @@ const createTool = async (data) => {
     }
 }
 
-/*  const getAllTools = async () => {
-    try {
-        const getAllTools = await schema.find({});
-        return getAllTools;        
-    } catch (error) {
-        console.log(error);
-    }
-}  */
 
 
 const tool = {
     createTool,
-/*     getAllTools
- */}
+ }
 
 module.exports = tool
 
