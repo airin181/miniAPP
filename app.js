@@ -25,10 +25,10 @@ app.use(helmet({
     contentSecurityPolicy: {
     /* useDefaults: true, */
     crossOriginEmbedderPolicy: false,
-     /*  directives: {
+       directives: {
         
         "img-src": ["'self'", "firebasestorage.googleapis.com", "https: data:"]
-      } */
+      } 
     }
   }));
   
