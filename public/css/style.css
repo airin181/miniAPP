@@ -320,8 +320,25 @@ a {
 
 #buttons-div{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.buttons-home{
+    margin: 0.2em;
+    width: 100%;
+    background-color: #22172B;
+    color: white;
+    height: 35px;
+    border-style: none;
+    border-radius: 4px;
+    margin-top: 2em;
+}
+
+#buttons-div > button:nth-child(1){
+    background-color: #ffc200;
+    color: black
 }
