@@ -34,7 +34,7 @@ const createTool = async (req, res) => {
             description: description,
             image: image 
         });
-        res.status(201).redirect(`${process.env.URL_BASE}/mytools`)
+        res.status(201).redirect(`/mytools`)
     }
 
     catch (error) {
