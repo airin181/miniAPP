@@ -7,6 +7,8 @@ const bodyParser = require('body-parser')
 const port = process.env.PORT; 
 const cors = require('cors');
 const path = require('path');
+const helmet = require("helmet");
+
 
 require('./utils/mongo.js');
 
@@ -19,6 +21,7 @@ app.set("views", "./views");
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.json());
 app.use(cors());
+app.use(helmet());
 app.use(express.urlencoded({extended:true}));//Para poder leer los datos del req.body y así tratar luego en DB esa info
 
 
