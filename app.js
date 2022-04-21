@@ -26,7 +26,7 @@ app.use(helmet({
     useDefaults: true,
       directives: {
         
-        "img-src": ["'https://miniapp-tools.herokuapp.com/'", "https: data:"]
+        "img-src": ["https://miniapp-tools.herokuapp.com", "https://firebasestorage.*", "https: data:"]
       }
     }
   }));
