@@ -24,13 +24,9 @@ app.use(cors());
 app.use(helmet({
     contentSecurityPolicy: {
       directives: {
-        defaultSrc: ["'self'"], 
-        scriptSrc: ["'self'"],
-        styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
-        imgSrc: ["'https://miniapp-tools.herokuapp.com'", "https: data:"],
-        objectSrc: ["'self'"],
-        mediaSrc: ["'self'"],
-        frameSrc: ["'self'", "https://miniapp-tools.herokuapp.com"],
+       
+        "img-src": ["'https://miniapp-tools.herokuapp.com'", "https: data:"],
+     
       },
     }
   }));
