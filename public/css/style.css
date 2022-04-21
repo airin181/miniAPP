@@ -30,10 +30,10 @@ form {
     align-items: center;
 }
 
-img {
+/* img {
     width: 400px;
     height: 500px;
-}
+} */
 
 p {
     text-align: center;
@@ -190,6 +190,7 @@ a {
 
 .h2-form{
     margin-top: 2em;
+    text-decoration: underline;
 }
 
 .form{
@@ -247,14 +248,17 @@ a {
     align-items: center;
     justify-content: center;
     margin-top: 1em;
+    flex-wrap: wrap;
 }
 
 .mytools-section{
-    width: 80%;
+    width: 100%;
     border-radius: 10px;
-    max-width: 25em;
     margin-bottom: 3em;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 .mytool{
@@ -262,9 +266,14 @@ a {
     display: flex;
     flex-direction: column;
     background-color: #F5F8FA;
-    margin-bottom: 2em;
     border-radius: 10px;
     width: 100%;
+    max-width: 23em;
+    margin: 2em;
+}
+
+#description{
+    text-align: justify;
 }
 
 
