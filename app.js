@@ -23,12 +23,12 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet({
     contentSecurityPolicy: {
-    useDefaults: true,
+    /* useDefaults: true, */
     crossOriginEmbedderPolicy: false,
-      directives: {
+     /*  directives: {
         
         "img-src": ["'self'", "firebasestorage.googleapis.com", "https: data:"]
-      }
+      } */
     }
   }));
   
