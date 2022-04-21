@@ -22,9 +22,16 @@ app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.json());
 app.use(cors());
 app.use(helmet({
-    useDefaults: true,
-    directives: {
-      "img-src": ["https://miniapp-tools.herokuapp.com", "https: data:"]
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"], 
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
+        imgSrc: ["'https://miniapp-tools.herokuapp.com'", "https: data:"],
+        objectSrc: ["'self'"],
+        mediaSrc: ["'self'"],
+        frameSrc: ["'self'", "https://miniapp-tools.herokuapp.com"],
+      },
     }
   }));
   
