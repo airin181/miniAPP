@@ -7,7 +7,7 @@ const bodyParser = require('body-parser')
 const port = process.env.PORT; 
 const cors = require('cors');
 const path = require('path');
-/* const helmet = require("helmet"); */
+const helmet = require("helmet");
 
 
 require('./utils/mongo.js');
@@ -21,7 +21,15 @@ app.set("views", "./views");
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.json());
 app.use(cors());
-/* app.use(helmet({
+app.use(
+    helmet({
+      contentSecurityPolicy: false,
+      crossOriginEmbedderPolicy: false,
+      frameguard: false // Needed for Code Sandbox (not part of the solution)
+    })
+  );
+/* app.use(
+    helmet({
     contentSecurityPolicy: {
     useDefaults: true, 
     //crossOriginEmbedderPolicy: false,
