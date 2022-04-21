@@ -24,6 +24,7 @@ app.use(cors());
 app.use(helmet({
     contentSecurityPolicy: {
     useDefaults: true,
+    crossOriginEmbedderPolicy: false,
       directives: {
         
         "img-src": ["'self'", "firebasestorage.googleapis.com", "https: data:"]
