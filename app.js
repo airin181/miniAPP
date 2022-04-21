@@ -23,11 +23,11 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet({
     contentSecurityPolicy: {
+    useDefaults: true,
       directives: {
-       
-        "img-src": ["'https://miniapp-tools.herokuapp.com'", "https: data:"],
-     
-      },
+        
+        "img-src": ["'https://miniapp-tools.herokuapp.com'", "https: data:"]
+      }
     }
   }));
   
