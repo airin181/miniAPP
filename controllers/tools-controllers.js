@@ -15,15 +15,17 @@ const createTool = async (req, res) => {
     let image;
     const file = req.file;
 
+    //......FIREBASE
+    //guardar con el originalname en Firebase
     const fileName = file.originalname;
-
     const metadata = {
         contentType: 'image/jpeg'
     };
     const storageRef = ref(storage, 'images/' + fileName);
 
+
     try{
-    //......FIREBASE
+    //sacar la URL y meterla en el objeto de Mongo
     await uploadBytes(storageRef, file.buffer, metadata).then(async (snapshot) => {
         console.log('Uploaded a file!')
         image = await getDownloadURL(storageRef);
