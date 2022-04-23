@@ -338,7 +338,7 @@ a {
     margin-top: 2em;
 }
 
-#buttons-div > button:nth-child(1){
+#buttons-div > a:nth-child(1){
     background-color: #ffc200;
     color: black
 }

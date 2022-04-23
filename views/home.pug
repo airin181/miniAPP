@@ -22,8 +22,9 @@ body(id="body-home")
             h1(id="welcome-h1") Welcome to Tooland
             h3(id="welcome-h3") Add a new tool in our form and check them all in our section My Tools
             div(id="buttons-div")
-                button(class="submit" onclick="location.href='/mytools'") CHECK ALL TOOLS
-                button(class="submit" onclick="location.href='/form'") REGISTER A NEW TOOL
+                
+                a(href="/mytools" class="submit") CHECK ALL TOOLS
+                a(href="/form" class="submit") REGISTER A NEW TOOL 
 
 
 script(src="../js/hamburger.js")location.href='/form'
