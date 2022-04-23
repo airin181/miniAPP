@@ -338,7 +338,22 @@ a {
     margin-top: 2em;
 }
 
-#buttons-div > a:nth-child(1){
+#buttons-div > a{
     background-color: #ffc200;
-    color: black
+    color: black;
+    height: 35px;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-style: none;
+    border-radius: 4px;
+    margin: 0.2em;
+    width: 100%;
+}
+
+#buttons-div > a:nth-child(1){
+    background-color: black;
+    color: white;
 }
